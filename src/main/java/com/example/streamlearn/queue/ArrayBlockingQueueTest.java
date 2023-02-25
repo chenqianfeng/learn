@@ -22,7 +22,7 @@ public class ArrayBlockingQueueTest {
             new Thread(()->{
                 for (int j = 0; j < 100; j++)
                     try {
-                        queue.offer((int)(Math.random()*10));
+                        queue.put((int)(Math.random()*10));
                     } catch (Exception e) {
                         throw new RuntimeException(e);
                     }
@@ -32,7 +32,7 @@ public class ArrayBlockingQueueTest {
         new Thread(()->{
             while (true)
                 try {
-                    System.out.println("take:"+queue.poll());
+                    System.out.println("take:"+queue.take());
                 } catch (Exception e) {
                     throw new RuntimeException(e);
                 }
